@@ -15,8 +15,11 @@ export default function Music(){
             <button onClick={getMusicDetails}>the test </button>
                 { music && 
                 <>
+                <div style={{display:"grid"}}>
+                <h1>{music.title}</h1>
                 <img src={music.thumb} alt="" />         
                 <audio src={music.url} controls></audio>
+                </div>
                 </> }
         </>
     )
