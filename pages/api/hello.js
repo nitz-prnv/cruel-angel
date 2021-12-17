@@ -8,7 +8,7 @@ export default async function handler(req, res) {
   const info = await ytdl.getInfo(search.all[0].url)
   let url;
   info.formats.map((e)=>{
-    if(e.hasVideo===false&&e.audioQuality==='AUDIO_QUALITY_MEDIUM')
+    if(e.hasVideo===false)
     url=e.url
   })
   res.status(200).json({thumb,title,url})
