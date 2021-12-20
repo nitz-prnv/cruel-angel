@@ -17,7 +17,7 @@ export default function Music(){
                 { music && 
                music.map((item)=>{
                    return(
-                       <div>
+                       <div key={item.title}>
                            <img src={item.thumb} alt="music" width="200px"/>
                            <h3>{item.title}</h3>
                         </div>
