@@ -1,8 +1,9 @@
 import React from "react";
+import { Button } from "../components";
 
 export default function Music(){
     const [query,setQuery]=React.useState('');
-    const [music,setMusic]=React.useState();
+    const [music,setMusic]=React.useState([]);
     async function getMusicDetails(){
         const res = await fetch(`/api/hello?search=${query}`);
         const data = await res.json()
@@ -12,15 +13,17 @@ export default function Music(){
     return(
         <>
         <input type="text" value={query} onChange={(e)=>{setQuery(e.target.value)}} />
-            <button onClick={getMusicDetails}>the test </button>
+            <Button onClick={getMusicDetails}>the test </Button>
                 { music && 
-                <>
-                <div style={{display:"grid"}}>
-                <h1>{music.title}</h1>
-                <img src={music.thumb} alt="" />         
-                <audio src={music.url} controls></audio>
-                </div>
-                </> }
+               music.map((item)=>{
+                   return(
+                       <div>
+                           <img src={item.thumb} alt="music" width="200px"/>
+                           <h3>{item.title}</h3>
+                        </div>
+                   )
+               })
+               }
         </>
     )
 }
