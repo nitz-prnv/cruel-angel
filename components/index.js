@@ -56,3 +56,26 @@ export const SearchInput = styled.input`
 width:50%;
 
 `
+export const PlayerWrapper = styled.div`
+display:grid;
+grid-template-rows: 38% 22% 40%;
+height:500px;
+width:500px;
+border-radius:20px;
+background:#5a5671f0;
+`
+export const ControlWrapper = styled.div`
+display:grid;
+grid-template-rows: 70% 30% ;
+grid-template-columns:20% 20% 20% 20% 20%;
+grid-row-start: 2;
+background:silver;
+margin:10px;
+border-radius:10px;
+
+`
+export const PlayPause = styled.div`
+border-radius:170px;
+border:3px solid black;
+
+`
