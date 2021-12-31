@@ -1,0 +1,4 @@
+.player{
+    grid-template-rows: 60% 20% 30%;
+    grid-row-start: 2;
+}
