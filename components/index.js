@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import { device } from "./device";
 const bg = ''
 export const MainWrapper = styled.div `
@@ -56,13 +57,24 @@ export const SearchInput = styled.input`
 width:50%;
 
 `
+export const MusicWrapper =styled.div `
+display:grid;
+grid-template-rows: 8% 92%;
+grid-template-columns: 60% 40%;
+height:100vh;
+width:100vw;
+background-color: rgb(184, 144, 221);
+
+`
 export const PlayerWrapper = styled.div`
 display:grid;
-grid-template-rows: 38% 22% 40%;
-height:500px;
+grid-template-rows: 30% 20% 50%;
+height:600px;
 width:500px;
 border-radius:20px;
 background:#5a5671f0;
+grid-row-start:2;
+grid-column-start:2;
 `
 export const ControlWrapper = styled.div`
 display:grid;
@@ -74,8 +86,42 @@ margin:10px;
 border-radius:10px;
 
 `
-export const PlayPause = styled.div`
-border-radius:170px;
-border:3px solid black;
+export const Pause = styled.div`
+background :url("/Lo-fi Wireframe Kit (Community)/pause-circle.png");
+background-repeat: no-repeat;
+background-position: center;
+`
+export const Play = styled.div`
+background :url("/Lo-fi Wireframe Kit (Community)/play-circle.png");
+background-repeat: no-repeat;
+background-position: center;
+`
+export const Shuffle = styled.div`
+background :url("/Lo-fi Wireframe Kit (Community)/shuffle.png");
+background-repeat: no-repeat;
+background-position: center;
+`
+
+export const Repeat = styled.div`
+background :url("/Lo-fi Wireframe Kit (Community)/repeat.png");
+background-repeat: no-repeat;
+background-position: center;
+`
+export const Prev = styled.div`
+background :url("/Lo-fi Wireframe Kit (Community)/skip-back.png");
+background-repeat: no-repeat;
+background-position: center;
+`
+export const Next = styled.div`
+background :url("/Lo-fi Wireframe Kit (Community)/skip-forward.png");
+background-repeat: no-repeat;
+background-position: center;
+`
+export const MusicDetailsWrapper = styled.div `
+
+display:grid;
+grid-template-columns: 50% 50%;
+grid-template-rows: 50% 50%;
+
 
 `

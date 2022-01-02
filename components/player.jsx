@@ -1,13 +1,25 @@
 import React from "react";
+import {
+  ControlWrapper,
+  Play,
+  Pause,
+  PlayerWrapper,
+  Next,
+  Prev,
+  Shuffle,
+  Repeat,
+  MusicDetailsWrapper,
+} from "../components";
+
 export const Player = ({ playlist }) => {
   const [playing, SetPlaying] = React.useState(false);
   const [audio, setAudio] = React.useState(new Audio(playlist[0].stream_url));
-  const [np,setNp] = React.useState(playlist[0]);
-//   React.useEffect(()=>{
-//     setAudio(new Audio(playlist[0].stream_url))
-//     setNp(playlist[0])
-//     console.log(playlist);
-//   },[playlist])
+  const [np, setNp] = React.useState(playlist[0]);
+  React.useEffect(() => {
+    PauseMusic();
+    audio.load();
+    PlayMusic();
+  }, [audio]);
   const PlayMusic = () => {
     audio.play();
     SetPlaying(true);
@@ -20,36 +32,56 @@ export const Player = ({ playlist }) => {
   };
 
   const NextAudio = () => {
-     
-    if(playlist.length-1>playlist.indexOf(np)){
-        audio.pause()
-        let index = playlist.indexOf(np)+1;
-        console.log(index);
-        setNp(playlist[index])
-        setAudio(new Audio(playlist[index].stream_url));
-        console.log(np,audio);
-        audio.play()
+    console.log("next", np.title);
+    console.log(playing);
+    if (playlist.length - 1 > playlist.indexOf(np)) {
+      if (playing) audio.pause();
+      console.log(audio);
+      let index = playlist.indexOf(np) + 1;
+      console.log(index);
+      setNp(playlist[index]);
+      setAudio(new Audio(playlist[index].stream_url));
     }
-
   };
-  const PrevAudio =()=>{
-    if(playlist.indexOf(np)>0){
-        audio.pause()
-        let index = playlist.indexOf(np)-1
-        console.log(index);
-        setNp(playlist[index])
-        setAudio(new Audio(playlist[index].stream_url));
-        console.log(np,audio);
-        audio.play()  
+  const PrevAudio = () => {
+    console.log("prev", np.title);
+
+    if (playlist.indexOf(np) > 0) {
+      if (playing) audio.pause();
+      let index = playlist.indexOf(np) - 1;
+      console.log(index);
+      setNp(playlist[index]);
+      setAudio(new Audio(playlist[index].stream_url));
+      console.log(np, audio);
     }
-  }
+  };
   return (
-    <>
-      <button onClick={PrevAudio}>prev</button>
-      <button onClick={playing ? PauseMusic : PlayMusic}>
-        {playing ? "PAUSE" : "PLAY"}
-      </button>
-      <button onClick={NextAudio}>next</button>
-    </>
+    <PlayerWrapper>
+      <MusicDetailsWrapper>
+        <img src={np.thumb} alt="song" width="100%" />
+        {np.title}
+      </MusicDetailsWrapper>
+      <ControlWrapper>
+        <Shuffle onClick={()=>alert("sorry this feature is not available yet :)")}/>
+        <Prev onClick={PrevAudio} />
+        {!playing ? (
+          <Play onClick={PlayMusic} />
+        ) : (
+          <Pause onClick={PauseMusic} />
+        )}
+        <Next onClick={NextAudio} />
+        <Repeat onClick={()=>alert("sorry this feature is not available yet :)")}/>
+      </ControlWrapper>
+      <div>
+        {playlist.map((song) =>
+          song.title === np.title ? (
+            <h3 key={song.stream_url}>{song.title}</h3>
+          ) : (
+            <div key={song.stream_url}>{song.title}</div>
+          )
+        )}
+      </div>
+    </PlayerWrapper>
   );
 };
+4;

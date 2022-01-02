@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, PlayerWrapper, SearchInput } from "../components";
+import { Button, MusicWrapper, PlayerWrapper, SearchInput } from "../components";
 import { Player } from "../components/player";
 
 export default function Music() {
@@ -17,13 +17,12 @@ export default function Music() {
   }
 
   return (
-    <>
+    <MusicWrapper>
       <SearchInput
         type="text"
         value={query}
         onChange={(e) => {
           setQuery(e.target.value);
-          console.log(playlist);
         }}
       />
       <Button onClick={getMusicDetails}>Search </Button>
@@ -54,15 +53,9 @@ export default function Music() {
             </div>
           );
         })}
-      {loading && <PlayerWrapper>ohohohoo</PlayerWrapper>}
-      {playlist.length !== 0 &&   
-      (
-          <PlayerWrapper>
-          <Player playlist={playlist}
-          /> 
-          </PlayerWrapper>
-        
-      )}
-    </>
+      {playlist.length!==0 &&
+     <Player playlist={playlist}/>
+      }
+      </MusicWrapper>
   );
 }
