@@ -47,34 +47,50 @@ border-radius:20px;
 export const Button = styled.button `
 background-color: rgb(55, 104, 148);
 color: white;
-height:5vh;
-width: 10vw;
-border-radius:20px;
+height:100%;
+width: 30%;
+border-radius:10px;
 border:0;
 `
 export const SearchInput = styled.input`
 
-width:50%;
+height:100%;
+width:70%;
+border-radius:10px;
 
 `
 export const MusicWrapper =styled.div `
 display:grid;
+padding:5px;
 grid-template-rows: 8% 92%;
 grid-template-columns: 60% 40%;
 height:100vh;
 width:100vw;
 background-color: rgb(184, 144, 221);
+@media only screen and (max-width: 768px)  {
+    grid-template-columns: 100% ;
+
+}
 
 `
 export const PlayerWrapper = styled.div`
 display:grid;
+// align-self:center;
+justify-self:center;
 grid-template-rows: 30% 20% 50%;
-height:600px;
-width:500px;
 border-radius:20px;
+width: 90vw;
+height:40vh;
 background:#5a5671f0;
-grid-row-start:2;
-grid-column-start:2;
+color: wheat;
+justify-content:center;
+@media only screen and (min-width: 768px)  {
+    height:600px;
+    width:500px;
+    grid-row-start:2;
+    grid-column-start:2;
+}
+
 `
 export const ControlWrapper = styled.div`
 display:grid;
@@ -122,6 +138,17 @@ export const MusicDetailsWrapper = styled.div `
 display:grid;
 grid-template-columns: 50% 50%;
 grid-template-rows: 50% 50%;
+align-items:center;
+justify-items:center;
 
+
+`
+export const ImageWrapper =styled.img `
+padding:5px;
+border-radius:10px;
+grid-row-start:1;
+grid-row-end:3;
+`
+export const SongTitle =styled.div `
 
 `

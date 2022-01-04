@@ -1,6 +1,11 @@
 import React from "react";
-import { Button, MusicWrapper, PlayerWrapper, SearchInput } from "../components";
-import { Player } from "../components/player";
+import {
+  Button,
+  MusicWrapper,
+  PlayerWrapper,
+  SearchInput,
+} from "../components";
+import { EmptyPlayer, Player } from "../components/player";
 
 export default function Music() {
   const [query, setQuery] = React.useState("");
@@ -18,14 +23,16 @@ export default function Music() {
 
   return (
     <MusicWrapper>
-      <SearchInput
-        type="text"
-        value={query}
-        onChange={(e) => {
-          setQuery(e.target.value);
-        }}
-      />
-      <Button onClick={getMusicDetails}>Search </Button>
+      <div>
+        <SearchInput
+          type="text"
+          value={query}
+          onChange={(e) => {
+            setQuery(e.target.value);
+          }}
+        />
+        <Button onClick={getMusicDetails}>Search </Button>
+      </div>{" "}
       {query &&
         music.map((item) => {
           return (
@@ -53,9 +60,7 @@ export default function Music() {
             </div>
           );
         })}
-      {playlist.length!==0 &&
-     <Player playlist={playlist}/>
-      }
-      </MusicWrapper>
+      {playlist.length !== 0 ? <Player playlist={playlist} /> : <EmptyPlayer />}
+    </MusicWrapper>
   );
 }

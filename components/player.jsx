@@ -9,6 +9,7 @@ import {
   Shuffle,
   Repeat,
   MusicDetailsWrapper,
+  ImageWrapper,
 } from "../components";
 
 export const Player = ({ playlist }) => {
@@ -58,11 +59,13 @@ export const Player = ({ playlist }) => {
   return (
     <PlayerWrapper>
       <MusicDetailsWrapper>
-        <img src={np.thumb} alt="song" width="100%" />
+        <ImageWrapper src={np.thumb} alt="song" width="100%" />
         {np.title}
       </MusicDetailsWrapper>
       <ControlWrapper>
-        <Shuffle onClick={()=>alert("sorry this feature is not available yet :)")}/>
+        <Shuffle
+          onClick={() => alert("sorry this feature is not available yet :)")}
+        />
         <Prev onClick={PrevAudio} />
         {!playing ? (
           <Play onClick={PlayMusic} />
@@ -70,7 +73,9 @@ export const Player = ({ playlist }) => {
           <Pause onClick={PauseMusic} />
         )}
         <Next onClick={NextAudio} />
-        <Repeat onClick={()=>alert("sorry this feature is not available yet :)")}/>
+        <Repeat
+          onClick={() => alert("sorry this feature is not available yet :)")}
+        />
       </ControlWrapper>
       <div>
         {playlist.map((song) =>
@@ -84,4 +89,16 @@ export const Player = ({ playlist }) => {
     </PlayerWrapper>
   );
 };
-4;
+export const EmptyPlayer = () => {
+  return (
+    <PlayerWrapper>
+      <ControlWrapper>
+        <Shuffle></Shuffle>
+        <Prev></Prev>
+        <Play></Play>
+        <Next></Next>
+        <Repeat></Repeat>
+      </ControlWrapper>
+    </PlayerWrapper>
+  );
+};
