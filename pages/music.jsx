@@ -4,6 +4,7 @@ import {
   MusicWrapper,
   PlayerWrapper,
   SearchInput,
+  SearchResults,
 } from "../components";
 import { EmptyPlayer, Player } from "../components/player";
 
@@ -33,8 +34,10 @@ export default function Music() {
         />
         <Button onClick={getMusicDetails}>Search </Button>
       </div>{" "}
+      <SearchResults>
       {query &&
-        music.map((item) => {
+        music.map((item,index) => {
+          if(index<10)
           return (
             <div
               key={item.url}
@@ -53,13 +56,13 @@ export default function Music() {
                 console.log(playlist);
                 setLoading(false);
               }}
-              style={{ height: 300, cursor: "pointer" }}
+              style={{ cursor: "pointer" }}
             >
-              {/* <img src={item.thumb} alt="music" width="200px"/> */}
+              <img src={item.thumb} alt="music" width="100px"/>
               <h5>{item.title}</h5>
             </div>
           );
-        })}
+        })}</SearchResults>
       {playlist.length !== 0 ? <Player playlist={playlist} /> : <EmptyPlayer />}
     </MusicWrapper>
   );

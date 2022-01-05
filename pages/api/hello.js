@@ -1,15 +1,10 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import yts from "yt-search"
-import ytdl from "ytdl-core";
 export default async function handler(req, res) {
   const search = await yts(req.query.search);
   let details=[]
   search.all.map((e)=>{
     details=[...details,{thumb:e.thumbnail,title:e.title,url:e.url}]
   })
-  // let yo =result.formats.map((e)=>{
-  //   if(e.hasVideo===false&&e.audioQuality==='AUDIO_QUALITY_MEDIUM')
-  //   return e;
-  // })
   res.status(200).json(details)
 }

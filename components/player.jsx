@@ -80,7 +80,7 @@ export const Player = ({ playlist }) => {
       <div>
         {playlist.map((song) =>
           song.title === np.title ? (
-            <h3 key={song.stream_url}>{song.title}</h3>
+            <h3 key={song.stream_url} style={{padding:'8px',margin:'8px',border:'4px solid green'}}>{song.title}</h3>
           ) : (
             <div key={song.stream_url}>{song.title}</div>
           )

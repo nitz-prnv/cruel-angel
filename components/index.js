@@ -53,12 +53,19 @@ border-radius:10px;
 border:0;
 `
 export const SearchInput = styled.input`
-
+cursor:pointer;
 height:100%;
 width:70%;
 border-radius:10px;
 
 `
+export const SearchResults = styled.div `
+grid-row-start: 2;
+display:grid;
+grid-template-columns:50% 50%;
+padding:10px;
+`
+export const ResultItem =``
 export const MusicWrapper =styled.div `
 display:grid;
 padding:5px;
