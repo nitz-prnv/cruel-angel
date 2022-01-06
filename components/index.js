@@ -2,6 +2,12 @@ import styled from "styled-components";
 
 import { device } from "./device";
 const bg = ''
+export const LoadingRunner = styled.div `
+position:fixed;
+width:100px;
+left:50%;
+top:50%;
+`
 export const MainWrapper = styled.div `
 display:grid;
 width:100%;
@@ -84,7 +90,7 @@ export const PlayerWrapper = styled.div`
 display:grid;
 // align-self:center;
 justify-self:center;
-grid-template-rows: 30% 20% 50%;
+grid-template-rows: 30px 20px 50px;
 border-radius:20px;
 width: 90vw;
 height:40vh;
@@ -94,6 +100,7 @@ justify-content:center;
 @media only screen and (min-width: 768px)  {
     height:600px;
     width:500px;
+    grid-template-rows: 30% 20% 50%;
     grid-row-start:2;
     grid-column-start:2;
 }
@@ -107,7 +114,10 @@ grid-row-start: 2;
 background:silver;
 margin:10px;
 border-radius:10px;
+@media only screen and (max-width: 768px)  {
+    
 
+}
 `
 export const Pause = styled.div`
 background :url("/Lo-fi Wireframe Kit (Community)/pause-circle.png");

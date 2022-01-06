@@ -4,7 +4,7 @@ export default async function handler(req, res) {
     const result = await ytdl.getInfo(req.query.url)
     let response= null
     result.formats.map((i)=>{
-        if(!i.hasVideo && i.audioQuality==='AUDIO_QUALITY_MEDIUM' && i.codecs==='opus')
+        if(!i.hasVideo && i.audioQuality==='AUDIO_QUALITY_LOW')
         response=i;
     })
     res.json(response);

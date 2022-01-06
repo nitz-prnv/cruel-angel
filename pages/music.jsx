@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Button,
+  LoadingRunner,
   MusicWrapper,
   PlayerWrapper,
   SearchInput,
@@ -35,6 +36,9 @@ export default function Music() {
         <Button onClick={getMusicDetails}>Search </Button>
       </div>{" "}
       <SearchResults>
+      {loading &&<LoadingRunner>
+        meow
+      </LoadingRunner>}
       {query &&
         music.map((item,index) => {
           if(index<10)
